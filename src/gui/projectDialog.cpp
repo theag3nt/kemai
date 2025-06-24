@@ -20,9 +20,10 @@ ProjectDialog::~ProjectDialog() = default;
 Project ProjectDialog::project() const
 {
     Project project;
-    project.name       = mUi->leName->text();
-    project.budget     = mUi->sbBudget->value();
-    project.timeBudget = mUi->leTimeBudget->seconds();
+    project.name             = mUi->leName->text();
+    project.budget           = mUi->sbBudget->value();
+    project.timeBudget       = mUi->leTimeBudget->seconds();
+    project.globalActivities = mUi->cbGlobalActivities->isChecked();
     return project;
 }
 

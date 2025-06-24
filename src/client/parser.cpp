@@ -199,17 +199,18 @@ template<> Project KimaiApiTypesParser::parseValue(const QJsonValue& jsonValue) 
     checkKeysOrThrow("Project", jsonObject, {"id", "name"});
 
     Project project;
-    project.id          = jsonObject.value("id").toInt();
-    project.name        = jsonObject.value("name").toString();
-    project.comment     = jsonObject.value("comment").toString();
-    project.orderNumber = jsonObject.value("orderNumber").toString();
-    project.orderDate   = jsonObject.value("orderDate").toString();
-    project.start       = jsonObject.value("start").toString();
-    project.end         = jsonObject.value("end").toString();
-    project.color       = jsonObject.value("color").toString();
-    project.budget      = jsonObject.value("budget").toDouble();
-    project.timeBudget  = jsonObject.value("timeBudget").toInt();
-    project.visible     = jsonObject.value("visible").toBool();
+    project.id               = jsonObject.value("id").toInt();
+    project.name             = jsonObject.value("name").toString();
+    project.comment          = jsonObject.value("comment").toString();
+    project.orderNumber      = jsonObject.value("orderNumber").toString();
+    project.orderDate        = jsonObject.value("orderDate").toString();
+    project.start            = jsonObject.value("start").toString();
+    project.end              = jsonObject.value("end").toString();
+    project.color            = jsonObject.value("color").toString();
+    project.budget           = jsonObject.value("budget").toDouble();
+    project.timeBudget       = jsonObject.value("timeBudget").toInt();
+    project.visible          = jsonObject.value("visible").toBool();
+    project.globalActivities = jsonObject.value("globalActivities").toBool();
 
     if (jsonObject.contains("customer"))
     {
@@ -381,17 +382,18 @@ QJsonValue KimaiApiTypesParser::toJson(const Project& inst)
         joProject["id"] = inst.id;
     }
 
-    joProject["name"]        = inst.name;
-    joProject["visible"]     = inst.visible;
-    joProject["comment"]     = inst.comment;
-    joProject["orderNumber"] = inst.orderNumber;
-    joProject["orderDate"]   = inst.orderDate;
-    joProject["start"]       = inst.start;
-    joProject["end"]         = inst.end;
-    joProject["color"]       = inst.color;
-    joProject["customer"]    = inst.customer.id;
-    joProject["budget"]      = inst.budget;
-    joProject["timeBudget"]  = inst.timeBudget;
+    joProject["name"]             = inst.name;
+    joProject["visible"]          = inst.visible;
+    joProject["comment"]          = inst.comment;
+    joProject["orderNumber"]      = inst.orderNumber;
+    joProject["orderDate"]        = inst.orderDate;
+    joProject["start"]            = inst.start;
+    joProject["end"]              = inst.end;
+    joProject["color"]            = inst.color;
+    joProject["customer"]         = inst.customer.id;
+    joProject["budget"]           = inst.budget;
+    joProject["timeBudget"]       = inst.timeBudget;
+    joProject["globalActivities"] = inst.globalActivities;
 
     return joProject;
 }

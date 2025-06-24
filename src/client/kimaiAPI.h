@@ -58,8 +58,9 @@ struct Project
     QString start;
     QString end;
     QString color;
-    double budget  = 0.0;
-    int timeBudget = 0;
+    double budget         = 0.0;
+    int timeBudget        = 0;
+    bool globalActivities = true;
 };
 using Projects = std::vector<Project>;
 
